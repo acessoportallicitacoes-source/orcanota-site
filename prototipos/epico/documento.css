@@ -1,0 +1,76 @@
+/* Orçamento Pro refeito em HTML, seguindo os blocos e a ordem do PDF Pro do app
+   (docs/design/pdf/modelos.md e exemplos/pro-orcamento.pdf). Página A4 em 794 x 1123 px. */
+.doc {
+  --marca: #0E5A8A;
+  --marca-suave: color-mix(in srgb, var(--marca) 10%, white);
+  --tinta: #0F1B2D;
+  --tinta-suave: #4A5668;
+  --tinta-sutil: #5B6778;
+  --linha: #D9DFE7;
+  --zebra: #F1F4F8;
+  width: 794px; height: 1123px; padding: 44px 58px 0;
+  font: 400 13.5px/1.42 "Inter Variable", Inter, system-ui, sans-serif;
+  color: var(--tinta); font-variant-numeric: tabular-nums; position: relative;
+}
+.doc * { box-sizing: border-box; margin: 0; }
+.doc .rotulo { font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--marca); }
+
+/* 1. Cabeçalho: faixa na cor da empresa, logo sobre placa branca */
+.doc .faixa { background: var(--marca); color: #fff; border-radius: 7px; padding: 16px 24px; display: flex; align-items: center; gap: 18px; }
+.doc .placa { flex: none; width: 68px; height: 68px; border-radius: 9px; background: #fff; display: grid; place-items: center; }
+.doc .placa svg { width: 40px; height: 40px; }
+.doc .negocio { flex: 1; min-width: 0; }
+.doc .negocio h1 { font-size: 28px; line-height: 1.15; font-weight: 700; letter-spacing: -.01em; }
+.doc .negocio p { font-size: 12.5px; line-height: 1.5; margin-top: 4px; opacity: .96; }
+.doc .titulo { text-align: right; flex: none; }
+.doc .titulo b { display: block; font-size: 23px; line-height: 1.15; }
+.doc .titulo span { font-size: 16px; font-weight: 700; }
+
+/* 2. Resumo */
+.doc .resumo { margin-top: 15px; border: 1px solid var(--linha); border-radius: 6px; padding: 12px 20px 12px; display: grid; grid-template-columns: 1.25fr .9fr 1.2fr; gap: 12px; }
+.doc .resumo strong { display: block; font-size: 15.5px; font-weight: 700; }
+.doc .resumo small { display: block; font-size: 13px; color: var(--tinta-suave); }
+.doc .resumo .datas .rotulo:nth-of-type(2) { margin-top: 7px; }
+.doc .resumo .datas b { display: block; font-size: 13.5px; }
+.doc .resumo .total { text-align: right; }
+.doc .resumo .total b { display: block; font-size: 31px; line-height: 1.2; font-weight: 700; color: var(--marca); letter-spacing: -.01em; }
+
+/* 3. Itens */
+.doc table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.doc thead th { background: var(--marca-suave); border-bottom: 1.5px solid var(--marca); font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2C3A4D; text-align: right; padding: 7px 8px; }
+.doc thead th:first-child { text-align: left; }
+.doc td { padding: 6px 8px; text-align: right; white-space: nowrap; }
+.doc td:first-child { text-align: left; white-space: normal; }
+.doc td em { font-style: normal; color: var(--tinta-suave); }
+.doc tr.grupo td { font-weight: 700; padding-top: 11px; }
+.doc tr.zebra td { background: var(--zebra); }
+
+/* 4. Condições e totais */
+.doc .fecho { margin-top: 12px; display: grid; grid-template-columns: 1fr 318px; gap: 40px; align-items: start; }
+.doc .fecho p { margin-top: 2px; }
+.doc .totais div { display: flex; justify-content: space-between; padding: 4px 8px; font-size: 15px; }
+.doc .totais .final { margin-top: 5px; border-top: 1.5px solid var(--marca); background: var(--marca-suave); padding: 8px; font-size: 18px; font-weight: 700; }
+.doc .totais .final span:last-child { color: var(--marca); }
+
+/* 5. Pix */
+.doc .pix { margin-top: 13px; border: 1px solid var(--linha); border-radius: 6px; padding: 12px 18px; display: flex; align-items: center; gap: 20px; }
+.doc .pix img { width: 90px; height: 90px; flex: none; }
+.doc .pix b.t { display: block; font-size: 15.5px; }
+.doc .pix p { color: var(--tinta-suave); }
+.doc .pix p.chave { color: var(--tinta); }
+
+/* 6. Assinaturas */
+.doc .assinaturas { margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+.doc .assinaturas .linha { height: 40px; border-bottom: 1px solid #5B6778; position: relative; }
+.doc .assinaturas .linha img { position: absolute; left: 6px; bottom: -6px; height: 50px; }
+.doc .assinaturas b { display: block; font-weight: 500; margin-top: 5px; }
+.doc .assinaturas small { display: block; font-size: 13px; color: var(--tinta-suave); }
+
+/* 7. Fotos */
+.doc .fotos { margin-top: 11px; }
+.doc .fotos .grade { margin-top: 6px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.doc .fotos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block; }
+.doc .fotos figcaption { margin: 4px 0 0; font-size: 12.5px; color: var(--tinta-suave); }
+.doc .fotos figure { margin: 0; width: auto; }
+
+.doc .rodape { position: absolute; right: 58px; bottom: 15px; font-size: 10px; color: var(--tinta-sutil); }

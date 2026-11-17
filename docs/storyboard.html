@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storyboard da história</title>
+<style>
+  :root { --azul:#0E5A8A; --azul-claro:#7EC0E6; --ambar:#F5A30A; --noite:#0A2E44; --tinta:#0F1B2D; --tinta-2:#4A5668; --papel:#F4F6F9; --linha:#DCE2EA; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 16px/1.55 'Inter', system-ui, sans-serif; }
+  header, section { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  header { padding-top: 48px; padding-bottom: 24px; }
+  h1 { font: 800 clamp(30px, 4vw, 46px)/1.05 'Urbanist', system-ui, sans-serif; letter-spacing: -.03em; margin: 0; }
+  header p { max-width: 46em; color: var(--tinta-2); margin: 14px 0 0; }
+  .cena { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, .9fr) minmax(0, 2fr); gap: 20px; align-items: start; padding: 28px 0; border-top: 1px solid var(--linha); }
+  .cena h2 { font: 800 26px/1.1 'Urbanist', system-ui, sans-serif; margin: 0 0 8px; letter-spacing: -.02em; }
+  .cena .n { color: var(--azul); }
+  figure { margin: 0; }
+  figcaption { font-size: 13px; color: var(--tinta-2); margin-top: 6px; }
+  svg.quadro { width: 100%; height: auto; display: block; border-radius: 14px; background: var(--noite); }
+  dl { margin: 0; display: grid; gap: 10px; }
+  dt { font-weight: 700; font-size: 14px; }
+  dd { margin: 2px 0 0; color: var(--tinta-2); font-size: 15px; }
+  .notas { padding: 28px 0 64px; border-top: 1px solid var(--linha); }
+  .notas li { margin: 6px 0; color: var(--tinta-2); }
+  @media (max-width: 860px) { .cena { grid-template-columns: 1fr 1fr; } .cena > div { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="g-fio" x1="0" x2="1"><stop offset="0" stop-color="#7EC0E6"/><stop offset=".55" stop-color="#0E5A8A"/><stop offset="1" stop-color="#F5A30A"/></linearGradient>
+    <!-- Prestador: boné, camisa azul, cinto de ferramentas, celular na mão. -->
+    <symbol id="prestador" viewBox="0 0 60 140">
+      <circle cx="30" cy="20" r="11" fill="#E8B48A"/>
+      <path d="M17 17 Q30 2 43 17 L46 18 L17 18Z" fill="#F5A30A"/>
+      <path d="M14 36 Q30 30 46 36 L48 88 L12 88Z" fill="#0E5A8A"/>
+      <rect x="12" y="78" width="36" height="9" rx="2" fill="#5C3A1E"/>
+      <rect x="15" y="80" width="5" height="12" rx="1" fill="#F5A30A"/><rect x="38" y="80" width="5" height="10" rx="1" fill="#C9D3DD"/>
+      <path d="M16 88 L28 88 L27 136 L17 136Z M32 88 L44 88 L43 136 L33 136Z" fill="#23384F"/>
+      <path d="M46 40 L54 62 L44 66" stroke="#0E5A8A" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <rect x="40" y="58" width="9" height="15" rx="2" fill="#0F1B2D" stroke="#7EC0E6"/>
+    </symbol>
+    <!-- Cliente: em casa, roupa clara, celular na mão. -->
+    <symbol id="cliente" viewBox="0 0 60 140">
+      <circle cx="30" cy="20" r="11" fill="#B98563"/>
+      <path d="M18 18 Q20 4 32 6 Q44 7 42 22 Q40 14 30 13 Q22 14 18 18Z" fill="#2B1C14"/>
+      <path d="M15 36 Q30 30 45 36 L47 92 L13 92Z" fill="#E6E1D6"/>
+      <path d="M17 92 L28 92 L27 136 L18 136Z M32 92 L43 92 L42 136 L33 136Z" fill="#6E7F92"/>
+      <path d="M14 40 L7 62 L17 66" stroke="#E6E1D6" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <rect x="11" y="58" width="9" height="15" rx="2" fill="#0F1B2D" stroke="#F5A30A"/>
+    </symbol>
+    <symbol id="casa" viewBox="0 0 120 110">
+      <path d="M6 48 L60 6 L114 48 L114 108 L6 108Z" fill="#123E59" stroke="#23465C" stroke-width="2"/>
+      <rect x="20" y="58" width="30" height="26" rx="2" fill="#F5A30A" opacity=".55"/>
+      <rect x="70" y="62" width="26" height="46" rx="2" fill="#0A2E44"/>
+    </symbol>
+    <symbol id="escada" viewBox="0 0 40 120">
+      <path d="M8 118 L16 4 M32 118 L24 4 M10 94 L30 94 M12 70 L28 70 M13 46 L27 46 M15 22 L25 22" stroke="#8AA4B8" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="cel" viewBox="0 0 47 100">
+      <rect x="1" y="1" width="45" height="98" rx="7" fill="#05141E" stroke="#23465C" stroke-width="1.5"/>
+      <rect x="3.5" y="3.5" width="40" height="93" rx="5" fill="#F4F6F9"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <h1>A história do Orçanota, em seis cenas</h1>
+  <p>Cada cena ocupa uma "tela" de rolagem. A pessoa rola, a câmera se move. No computador, prestador e cliente aparecem lado a lado. No celular, a câmera alterna entre os dois e os textos ficam no alto. As telas do celular são capturas reais do app (Elétrica Rocha orçando a troca do quadro de distribuição da Ana Souza, R$ 650,00).</p>
+</header>
+
+<section>
+  <!-- 1 -->
+  <article class="cena">
+    <figure>
+      <svg class="quadro" viewBox="0 0 320 180" role="img" aria-label="Plano aberto: prestador à esquerda com escada, cliente à direita na porta de casa">
+        <rect x="0" y="150" width="320" height="30" fill="#082435"/>
+        <use href="#escada" x="38" y="68" width="26" height="84"/>
+        <use href="#prestador" x="60" y="86" width="30" height="70"/>
+        <use href="#casa" x="210" y="88" width="72" height="66"/>
+        <use href="#cliente" x="236" y="104" width="22" height="52"/>
+        <text x="160" y="34" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="15">O orçamento chega antes</text>
+        <text x="160" y="52" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="15">de você guardar a escada.</text>
+        <rect x="124" y="62" width="72" height="12" rx="6" fill="#fff"/>
+      </svg>
+      <figcaption>Computador</figcaption>
+    </figure>
+    <figure>
+      <svg class="quadro" viewBox="0 0 90 180" role="img" aria-label="Celular: título no alto, os dois pequenos embaixo">
+        <rect x="0" y="152" width="90" height="28" fill="#082435"/>
+        <text x="45" y="26" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="8">O orçamento chega</text>
+        <text x="45" y="36" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="8">antes de você</text>
+        <text x="45" y="46" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="8">guardar a escada.</text>
+        <rect x="22" y="54" width="46" height="9" rx="4.5" fill="#fff"/>
+        <use href="#prestador" x="8" y="104" width="22" height="52"/>
+        <use href="#casa" x="50" y="112" width="36" height="42"/>
+        <use href="#cliente" x="60" y="118" width="15" height="38"/>
+      </svg>
+      <figcaption>Celular</figcaption>
+    </figure>
+    <div>
+      <h2><span class="n">1.</span> Plano aberto</h2>
+      <dl>
+        <dt>O que se vê</dt><dd>À noite, o eletricista com escada e cinto de ferramentas, e longe dali a cliente na porta de casa. Os dois pequenos, com distância entre eles.</dd>
+        <dt>Texto</dt><dd>"O orçamento chega antes de você guardar a escada." Embaixo, o subtítulo e o botão "Baixar grátis na Google Play".</dd>
+        <dt>Movimento</dt><dd>Parado, com um respiro sutil (luz da casa, poeira no ar). A rolagem começa a aproximar.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="cena">
+    <figure>
+      <svg class="quadro" viewBox="0 0 320 180" role="img" aria-label="A câmera se aproxima do prestador; a cliente fica pequena e desfocada ao fundo">
+        <rect x="0" y="150" width="320" height="30" fill="#082435"/>
+        <use href="#prestador" x="92" y="26" width="64" height="150"/>
+        <g opacity=".35"><use href="#casa" x="248" y="104" width="50" height="46"/><use href="#cliente" x="266" y="116" width="15" height="36"/></g>
+        <text x="160" y="22" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="11">Serviço visto. O cliente quer saber quanto fica.</text>
+      </svg>
+      <figcaption>Computador</figcaption>
+    </figure>
+    <figure>
+      <svg class="quadro" viewBox="0 0 90 180" role="img" aria-label="Celular: prestador grande no centro">
+        <text x="45" y="24" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">Serviço visto. O cliente</text>
+        <text x="45" y="33" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">quer saber quanto fica.</text>
+        <use href="#prestador" x="16" y="48" width="56" height="130"/>
+      </svg>
+      <figcaption>Celular</figcaption>
+    </figure>
+    <div>
+      <h2><span class="n">2.</span> A câmera se aproxima</h2>
+      <dl>
+        <dt>O que se vê</dt><dd>A câmera anda até o prestador. Ele tira o celular do bolso. A cliente fica pequena e fora de foco ao fundo (no celular, sai de cena).</dd>
+        <dt>Texto</dt><dd>"Serviço visto. O cliente quer saber quanto fica."</dd>
+        <dt>Movimento</dt><dd>Aproximação contínua, presa à rolagem (se a pessoa volta a rolagem, a câmera volta).</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article class="cena">
+    <figure>
+      <svg class="quadro" viewBox="0 0 320 180" role="img" aria-label="O celular do prestador ocupa a tela, com o orçamento sendo montado">
+        <text x="160" y="22" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="11">Cliente, serviço e valor. O Orçanota faz a conta.</text>
+        <use href="#cel" x="132" y="32" width="56" height="140"/>
+        <image href="../src/assets/telas/02-novo-orcamento.webp" x="135.5" y="36.5" width="49" height="131" preserveAspectRatio="xMidYMin slice"/>
+      </svg>
+      <figcaption>Computador</figcaption>
+    </figure>
+    <figure>
+      <svg class="quadro" viewBox="0 0 90 180" role="img" aria-label="Celular: a tela do app ocupa quase tudo">
+        <text x="45" y="20" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">Cliente, serviço e valor.</text>
+        <use href="#cel" x="14" y="30" width="62" height="146"/>
+        <image href="../src/assets/telas/02-novo-orcamento.webp" x="18" y="34" width="54" height="138" preserveAspectRatio="xMidYMin slice"/>
+      </svg>
+      <figcaption>Celular</figcaption>
+    </figure>
+    <div>
+      <h2><span class="n">3.</span> O orçamento se monta</h2>
+      <dl>
+        <dt>O que se vê</dt><dd>A câmera mergulha na mão até o celular encher a tela. Na tela real do app, o nome "Ana Souza" é digitado, o item "Troca do quadro de distribuição" entra e o total R$ 650,00 aparece.</dd>
+        <dt>Texto</dt><dd>"Cliente, serviço e valor. O Orçanota faz a conta e numera para você."</dd>
+        <dt>Movimento</dt><dd>Os campos se preenchem conforme a rolagem: rápido, para passar a sensação de menos de 1 minuto.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="cena">
+    <figure>
+      <svg class="quadro" viewBox="0 0 320 180" role="img" aria-label="O sinal sai do celular do prestador e atravessa até o celular da cliente">
+        <text x="160" y="22" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="11">Um toque, e o orçamento vai pelo WhatsApp.</text>
+        <use href="#cel" x="54" y="46" width="44" height="110"/>
+        <image href="../src/assets/telas/09-folha-enviar.webp" x="57" y="50" width="38" height="102" preserveAspectRatio="xMidYMin slice"/>
+        <use href="#cel" x="222" y="46" width="44" height="110"/>
+        <path d="M100 96 C 140 48, 180 48, 220 96" fill="none" stroke="url(#g-fio)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="196" cy="70" r="4" fill="#fff"/>
+      </svg>
+      <figcaption>Computador</figcaption>
+    </figure>
+    <figure>
+      <svg class="quadro" viewBox="0 0 90 180" role="img" aria-label="Celular: os dois aparelhos pequenos com o sinal entre eles">
+        <text x="45" y="20" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">Um toque, e vai</text>
+        <text x="45" y="29" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">pelo WhatsApp.</text>
+        <use href="#cel" x="4" y="78" width="28" height="70"/>
+        <use href="#cel" x="58" y="78" width="28" height="70"/>
+        <path d="M33 110 C 40 84, 50 84, 57 110" fill="none" stroke="url(#g-fio)" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <figcaption>Celular</figcaption>
+    </figure>
+    <div>
+      <h2><span class="n">4.</span> O envio</h2>
+      <dl>
+        <dt>O que se vê</dt><dd>O dedo toca em "Enviar" e escolhe o WhatsApp. Do celular sai o "fio": uma linha de sinal que nasce azul (o "o" da marca) e chega âmbar (o "n"), atravessando a noite até a casa da cliente.</dd>
+        <dt>Texto</dt><dd>"Um toque, e o orçamento vai pelo WhatsApp."</dd>
+        <dt>Movimento</dt><dd>A linha se desenha com a rolagem, com um ponto de luz correndo na frente. É o momento de mais brilho da página.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 5 -->
+  <article class="cena">
+    <figure>
+      <svg class="quadro" viewBox="0 0 320 180" role="img" aria-label="O celular da cliente mostra o PDF recebido na conversa">
+        <text x="160" y="22" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="11">Do outro lado, chega um PDF com cara de empresa grande.</text>
+        <use href="#cel" x="132" y="32" width="56" height="140"/>
+        <rect x="135.5" y="36.5" width="49" height="16" fill="#0A4467"/>
+        <rect x="140" y="60" width="34" height="10" rx="3" fill="#fff"/>
+        <rect x="146" y="76" width="34" height="44" rx="3" fill="#E2EFF6"/>
+        <image href="../src/assets/telas/orcamento-pagina.webp" x="148" y="78" width="30" height="34" preserveAspectRatio="xMidYMin slice"/>
+      </svg>
+      <figcaption>Computador</figcaption>
+    </figure>
+    <figure>
+      <svg class="quadro" viewBox="0 0 90 180" role="img" aria-label="Celular: a conversa com o PDF ocupa a tela">
+        <text x="45" y="20" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">Chega um PDF com cara</text>
+        <text x="45" y="29" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="7">de empresa grande.</text>
+        <use href="#cel" x="14" y="36" width="62" height="140"/>
+        <rect x="18" y="40" width="54" height="16" fill="#0A4467"/>
+        <rect x="34" y="70" width="36" height="52" rx="3" fill="#E2EFF6"/>
+        <image href="../src/assets/telas/orcamento-pagina.webp" x="36" y="72" width="32" height="42" preserveAspectRatio="xMidYMin slice"/>
+      </svg>
+      <figcaption>Celular</figcaption>
+    </figure>
+    <div>
+      <h2><span class="n">5.</span> A cliente recebe</h2>
+      <dl>
+        <dt>O que se vê</dt><dd>A câmera chega ao celular da cliente: a conversa com "Elétrica Rocha" e o PDF do orçamento nº 1. O PDF se abre e mostra a página real, com o total e a chave Pix.</dd>
+        <dt>Texto</dt><dd>"Do outro lado, chega um PDF com cara de empresa grande."</dd>
+        <dt>Movimento</dt><dd>O sinal âmbar "pousa" no celular e vira a mensagem. A página do PDF pode se abrir em camadas (logo, itens, total, Pix), como o sorvete do reel 5.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 6 -->
+  <article class="cena">
+    <figure>
+      <svg class="quadro" viewBox="0 0 320 180" role="img" aria-label="Os dois juntos, apertando as mãos">
+        <rect x="0" y="150" width="320" height="30" fill="#082435"/>
+        <use href="#casa" x="196" y="70" width="90" height="84" opacity=".7"/>
+        <use href="#prestador" x="112" y="54" width="44" height="104"/>
+        <use href="#cliente" x="160" y="58" width="42" height="100"/>
+        <circle cx="158" cy="98" r="6" fill="#F5A30A" opacity=".5"/>
+        <text x="160" y="24" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="13">Negócio fechado.</text>
+        <rect x="124" y="32" width="72" height="12" rx="6" fill="#fff"/>
+      </svg>
+      <figcaption>Computador</figcaption>
+    </figure>
+    <figure>
+      <svg class="quadro" viewBox="0 0 90 180" role="img" aria-label="Celular: os dois apertando as mãos">
+        <rect x="0" y="152" width="90" height="28" fill="#082435"/>
+        <text x="45" y="24" text-anchor="middle" fill="#fff" font-family="Urbanist,system-ui" font-weight="800" font-size="9">Negócio fechado.</text>
+        <rect x="22" y="32" width="46" height="9" rx="4.5" fill="#fff"/>
+        <use href="#prestador" x="12" y="70" width="36" height="86"/>
+        <use href="#cliente" x="42" y="72" width="34" height="84"/>
+      </svg>
+      <figcaption>Celular</figcaption>
+    </figure>
+    <div>
+      <h2><span class="n">6.</span> O aperto de mão</h2>
+      <dl>
+        <dt>O que se vê</dt><dd>A cliente responde "Fechado! Pode vir amanhã cedo." A câmera se afasta e mostra os dois na porta da casa, de dia, apertando as mãos. No celular do prestador, o recibo já pronto.</dd>
+        <dt>Texto</dt><dd>"Negócio fechado. E o recibo sai do mesmo orçamento." Volta o botão "Baixar grátis na Google Play".</dd>
+        <dt>Movimento</dt><dd>A noite vira manhã ao longo da cena (a cor do fundo clareia). Fim da história; a página segue para as seções normais.</dd>
+      </dl>
+    </div>
+  </article>
+</section>
+
+<section class="notas">
+  <h2 style="font:800 24px/1.2 Urbanist,system-ui,sans-serif">O que já está no site e o que fica para a animação premium</h2>
+  <ul>
+    <li><strong>Já está no site (versão base):</strong> as 6 cenas presas à rolagem, os textos, os celulares com as telas reais, a conversa da cliente com o PDF e o fio do envio desenhado pela rolagem. Funciona no computador e no celular.</li>
+    <li><strong>Fica para o agente Fable:</strong> os personagens (prestador e cliente), a casa, a câmera em 3D estilizado, o preenchimento dos campos na cena 3, o PDF em camadas na cena 5, a passagem da noite para a manhã e o aperto de mão.</li>
+    <li><strong>Regra de desempenho:</strong> no celular, a mesma história com menos detalhe 3D, para rodar liso em Android barato. Quem pede "reduzir movimento" no aparelho vê as cenas sem animação.</li>
+  </ul>
+</section>
+</body>
+</html>

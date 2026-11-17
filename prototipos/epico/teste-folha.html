@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><title>teste da folha</title>
+<link rel="stylesheet" href="/node_modules/@fontsource-variable/inter/index.css">
+<style>html,body{margin:0;background:#0b1418;overflow:hidden}canvas{display:block}</style></head><body>
+<canvas id="c"></canvas>
+<script type="module">
+import * as THREE from 'three';
+import { criaFolha, criaDocumento, FOLHA } from '/src/epico/js/folha.js';
+const q = new URLSearchParams(location.search);
+const medidas = await (await fetch('/src/epico/imagens/folha-orcamento.json')).json();
+await document.fonts.load('700 28px "Inter Variable"');
+const r = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true }); r.setSize(innerWidth, innerHeight); r.setPixelRatio(1);
+r.setClearColor(0x0b1418);
+const cena = new THREE.Scene(), cam = new THREE.PerspectiveCamera(27, innerWidth / innerHeight, 0.01, 10);
+const doc = criaDocumento('/src/epico/imagens/folha-orcamento.webp', medidas, false); await doc.pronto; doc.total('R$ 650,00');
+const colunas = (q.get('t') || '0,0,0,0').split(';');
+const vistas = { frente: [0, 0, 1], cima: [0.0, -0.75, 0.66], lado: [1, 0.15, 0.25], tras: [0.3, -0.3, -1] };
+const v = vistas[q.get('v') || 'frente'];
+colunas.forEach((tt, i) => {
+  const f = criaFolha(doc); f.uniforms.uRevela.value = 1;
+  const t = tt.split(',').map(Number);
+  if (q.has('solta')) { f.soltar({ curva: +q.get('curva') || 0, pe: 0, torce: +q.get('torce') || 0, onda: +q.get('onda') || 0, canto: +q.get('canto') || 0 }); }
+  else { f.modo(true); f.dobrar(t); }
+  f.grupo.position.x = (i - (colunas.length - 1) / 2) * 0.085; cena.add(f.grupo);
+});
+const d = +(q.get('d') || 0.42);
+cam.position.set(v[0], v[1], v[2]).normalize().multiplyScalar(d); cam.up.set(0, 1, 0); cam.lookAt(0, 0, 0);
+r.render(cena, cam); document.title = 'ok';
+</script></body></html>

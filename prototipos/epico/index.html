@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fotos-chave: prévia</title>
+<style>
+  :root { --fundo: #05090d; --tinta: #E9EEF5; --suave: #8FA3B5; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fundo); color: var(--tinta); font: 16px/1.5 Inter, system-ui, sans-serif; }
+  main { display: flex; gap: 32px; justify-content: center; align-items: flex-start; padding: 24px 16px 40px; flex-wrap: wrap; }
+  figure { margin: 0; width: min(100%, 430px); }
+  figcaption { margin-top: 12px; color: var(--suave); font-size: 14px; }
+  figcaption b { color: var(--tinta); display: block; font-size: 16px; }
+  .quadro { position: relative; aspect-ratio: 1536 / 2752; overflow: hidden; border-radius: 6px; container-type: inline-size; }
+  .quadro > img.foto { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  /* tela do celular: retângulo medido na foto A */
+  .tela { position: absolute; left: 35.16%; top: 32.61%; width: 29.88%; height: 36.97%; border-radius: 9.5% / 4.3%; overflow: hidden; background: #F4F6F9; }
+  .tela img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top; }
+  .tela::after { content: ""; position: absolute; left: 50%; top: 1.15%; width: 5.6%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: #05070a; }
+  /* na foto B a folha cobre o topo do celular: a tela só aparece da parte de baixo */
+  .tela.baixo { clip-path: polygon(0 66.5%, 100% 64.3%, 100% 100%, 0 100%); }
+  /* folha: o documento entra deformado nos quatro cantos medidos, multiplicado sobre o papel */
+  .folha { position: absolute; left: 0; top: 0; width: 794px; height: 1123px; transform-origin: 0 0; mix-blend-mode: multiply; pointer-events: none; }
+</style>
+<link rel="stylesheet" href="/node_modules/@fontsource-variable/inter/index.css">
+<link rel="stylesheet" href="./documento.css">
+</head>
+<body>
+<main>
+  <figure>
+    <div class="quadro">
+      <img class="foto" src="./imagens/a-bancada.jpg" alt="">
+      <div class="tela"><img src="../../src/assets/telas/01-inicio-vazia.webp" alt=""></div>
+    </div>
+    <figcaption><b>Foto A: a bancada</b>Cena 1 e ponto de partida das outras. A tela é a captura real do app, aplicada por código.</figcaption>
+  </figure>
+  <figure>
+    <div class="quadro" id="quadro-b">
+      <img class="foto" src="./imagens/b-folha.jpg" alt="">
+      <div class="tela baixo"><img src="../../src/assets/telas/09-folha-enviar.webp" alt=""></div>
+      <div class="folha" id="folha">
+        <article class="doc">
+          <header class="faixa">
+            <div class="placa"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M23 3 8 23h9l-2 14 15-20h-9z" fill="#0E5A8A"/></svg></div>
+            <div class="negocio">
+              <h1>Elétrica Rocha</h1>
+              <p>CNPJ 11.444.777/0001-61 · (11) 90000-0101 · contato@eletricarocha.exemplo<br>Rua das Acácias, 120 · Vila Mariana · São Paulo/SP</p>
+            </div>
+            <div class="titulo"><b>Orçamento</b><span>nº 1</span></div>
+          </header>
+
+          <section class="resumo">
+            <div><span class="rotulo">Para</span><strong>Ana Souza</strong><small>(11) 90000-0202</small><small>Rua Coronel Lisboa, 48, ap. 32</small></div>
+            <div class="datas"><span class="rotulo">Emitido em</span><b>11/11/2026</b><span class="rotulo" style="display:block;margin-top:7px">Válido até</span><b>26/11/2026</b></div>
+            <div class="total"><span class="rotulo">Total</span><b>R$ 650,00</b></div>
+          </section>
+
+          <table>
+            <thead><tr><th>Descrição</th><th>Qtd.</th><th>Valor unit.</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr class="grupo"><td colspan="4">Serviços</td></tr>
+              <tr><td>Instalação de ar-condicionado split 12.000 BTUs</td><td>1 <em>un</em></td><td>R$ 450,00</td><td>R$ 450,00</td></tr>
+              <tr class="grupo"><td colspan="4">Materiais</td></tr>
+              <tr><td>Tubulação de cobre com isolamento térmico</td><td>3 <em>m</em></td><td>R$ 40,00</td><td>R$ 120,00</td></tr>
+              <tr class="zebra"><td>Suporte para condensadora</td><td>1 <em>un</em></td><td>R$ 80,00</td><td>R$ 80,00</td></tr>
+            </tbody>
+          </table>
+
+          <section class="fecho">
+            <div>
+              <span class="rotulo">Condições de pagamento e garantia</span>
+              <p>Pagamento por Pix na conclusão do serviço. Garantia de 90 dias para a instalação.</p>
+            </div>
+            <div class="totais">
+              <div><span>Serviços</span><span>R$ 450,00</span></div>
+              <div><span>Materiais</span><span>R$ 200,00</span></div>
+              <div class="final"><span>Total</span><span>R$ 650,00</span></div>
+            </div>
+          </section>
+
+          <section class="pix">
+            <img src="./imagens/qr-exemplo.svg" alt="">
+            <div>
+              <b class="t">Pague com Pix</b>
+              <p>Abra o app do seu banco, escolha Pix e leia o código. Valor: R$ 650,00.</p>
+              <p class="chave">Chave Pix (CNPJ): <b>11.444.777/0001-61</b></p>
+            </div>
+          </section>
+
+          <section class="assinaturas">
+            <div><div class="linha"></div><b>Cliente: Ana Souza</b><small>Data: ____/____/________</small></div>
+            <div><div class="linha"><img src="./imagens/assinatura-prestador.svg" alt=""></div><b>Elétrica Rocha</b><small>Carlos Rocha</small></div>
+          </section>
+
+          <section class="fotos">
+            <span class="rotulo">Fotos</span>
+            <div class="grade">
+              <figure><img src="./imagens/foto-1-parede.jpg" alt=""><figcaption>Quarto: local da evaporadora</figcaption></figure>
+              <figure><img src="./imagens/foto-2-externa.jpg" alt=""><figcaption>Área de serviço: condensadora</figcaption></figure>
+              <figure><img src="./imagens/foto-3-quadro.jpg" alt=""><figcaption>Quadro: circuito do aparelho</figcaption></figure>
+            </div>
+          </section>
+
+          <div class="rodape">Orçamento nº 1 · Página 1 de 1</div>
+        </article>
+      </div>
+    </div>
+    <figcaption><b>Foto B: a folha de pé</b>Fim da cena CRIE e da cena RECEBA. O orçamento segue o modelo Pro do app: faixa com logo e cor, QR Pix, assinatura e fotos.</figcaption>
+  </figure>
+  <figure>
+    <div class="quadro">
+      <video id="rascunho" src="./videos/v1-folha-nasce.mp4" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+    </div>
+    <input type="range" id="rolagem" min="0" max="1000" value="0" aria-label="Simular a rolagem" style="width:100%;margin-top:14px;accent-color:#F5A30A">
+    <figcaption><b>Rascunho do vídeo: a folha sai do celular</b>Arraste a barra para simular a rolagem, ou <button id="tocar" style="font:inherit;color:#F7B23B;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">toque aqui para ver direto</button>. A folha ainda está em branco no movimento; o orçamento entra na produção.</figcaption>
+  </figure>
+</main>
+<script>
+// Cantos da folha na foto B, em fração da imagem (tl, tr, br, bl)
+const CANTOS = [[0.2007, 0.1453], [0.7389, 0.1196], [0.8081, 0.5452], [0.2624, 0.5717]];
+const FW = 794, FH = 1123;
+
+// Resolve a homografia que leva o retângulo FW x FH aos quatro cantos (em px) e devolve um matrix3d
+function matriz(dst) {
+  const src = [[0, 0], [FW, 0], [FW, FH], [0, FH]];
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) {
+    const [x, y] = src[i], [u, v] = dst[i];
+    A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u);
+    A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v);
+  }
+  // eliminação de Gauss
+  for (let c = 0; c < 8; c++) {
+    let p = c;
+    for (let r = c + 1; r < 8; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r;
+    [A[c], A[p]] = [A[p], A[c]]; [b[c], b[p]] = [b[p], b[c]];
+    for (let r = c + 1; r < 8; r++) {
+      const f = A[r][c] / A[c][c];
+      for (let k = c; k < 8; k++) A[r][k] -= f * A[c][k];
+      b[r] -= f * b[c];
+    }
+  }
+  const h = new Array(8);
+  for (let r = 7; r >= 0; r--) {
+    let s = b[r];
+    for (let k = r + 1; k < 8; k++) s -= A[r][k] * h[k];
+    h[r] = s / A[r][r];
+  }
+  return `matrix3d(${h[0]},${h[3]},0,${h[6]}, ${h[1]},${h[4]},0,${h[7]}, 0,0,1,0, ${h[2]},${h[5]},0,1)`;
+}
+
+function aplica() {
+  const q = document.getElementById('quadro-b').getBoundingClientRect();
+  document.getElementById('folha').style.transform = matriz(CANTOS.map(([x, y]) => [x * q.width, y * q.height]));
+}
+// Rascunho do vídeo: a barra faz o papel da rolagem
+const video = document.getElementById('rascunho'), barra = document.getElementById('rolagem');
+let alvo = 0, pendente = false;
+function vai() { pendente = false; if (video.duration) video.currentTime = Math.min(video.duration - 0.03, alvo * video.duration); }
+barra.addEventListener('input', () => { video.pause(); alvo = barra.value / 1000; if (!pendente) { pendente = true; requestAnimationFrame(vai); } });
+document.getElementById('tocar').addEventListener('click', () => { video.currentTime = 0; video.play(); });
+video.addEventListener('timeupdate', () => { if (!video.paused) barra.value = Math.round(video.currentTime / video.duration * 1000); });
+
+// ?foto=a|b&largura=1000 mostra uma foto só, grande (para conferir os detalhes)
+const par = new URLSearchParams(location.search);
+if (par.get('foto')) {
+  const figs = document.querySelectorAll('main > figure');
+  figs[par.get('foto') === 'a' ? 1 : 0].style.display = 'none';
+  document.querySelector('main').style.cssText = 'display:block;padding:0';
+  figs[par.get('foto') === 'a' ? 0 : 1].style.width = (par.get('largura') || 1000) + 'px';
+}
+addEventListener('resize', aplica);
+aplica();
+</script>
+</body>
+</html>

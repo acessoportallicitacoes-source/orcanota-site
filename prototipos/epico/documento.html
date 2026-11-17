@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Documento (matriz da folha 3D)</title>
+<!-- Matriz das folhas da história: o orçamento Pro e o recibo Pro, no tamanho A4 (794 x 1123).
+     É fotografada sem janela (ver ia/epico/relevo/LEIA-ME) e vira a textura do papel.
+     O que muda com o visitante (nome do negócio) e o que anima (total) fica em branco aqui e é
+     escrito por cima na hora, pela cena (classe .vivo). ?tipo=orcamento|recibo -->
+<link rel="stylesheet" href="/node_modules/@fontsource-variable/inter/index.css">
+<link rel="stylesheet" href="./documento.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body:not(.completo) .vivo { color: transparent !important; }
+  /* modelo grátis: o mesmo documento, limpo e com pouca tinta (docs/design/pdf/modelos.md) */
+  .feito { display: none; position: absolute; left: 58px; bottom: 15px; font-size: 10px; color: var(--tinta-sutil); }
+  .gratis .feito { display: block; }
+  .gratis .doc .faixa { background: none; color: var(--tinta); border-radius: 0; padding: 4px 0 14px; border-bottom: 1.5px solid var(--marca); }
+  .gratis .doc .placa, .gratis .doc .pix img, .gratis .doc .fotos, .gratis .doc .assinaturas .linha img, .gratis .doc .pix p:not(.chave) { display: none; }
+  .gratis .doc .negocio p { color: var(--tinta-suave); }
+  .gratis .doc .titulo b { color: var(--marca); }
+  .gratis .doc thead th, .gratis .doc .totais .final { background: none; }
+  .gratis .doc .resumo .total b, .gratis .doc .totais .final span:last-child { color: var(--tinta); }
+  .gratis .doc .rotulo { color: var(--tinta-suave); }
+  .gratis .doc .assinaturas > div:last-child { visibility: hidden; }
+  .doc .caixa-valor { margin-top: 15px; border: 1px solid var(--linha); border-radius: 6px; padding: 14px 20px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+  .doc .caixa-valor strong { display: block; font-size: 17px; font-weight: 700; }
+  .doc .caixa-valor small { display: block; font-size: 13px; color: var(--tinta-suave); }
+  .doc .caixa-valor .valor { text-align: right; }
+  .doc .caixa-valor .valor b { display: block; font-size: 38px; line-height: 1.15; font-weight: 700; color: var(--marca); letter-spacing: -.01em; }
+  .doc .declaracao { margin-top: 30px; font-size: 16.5px; line-height: 1.6; text-align: justify; }
+  .doc .local { margin-top: 26px; font-size: 16px; }
+  .doc .assina-recibo { margin-top: 46px; width: 330px; }
+  .doc .assina-recibo .linha { height: 54px; border-bottom: 1px solid #5B6778; position: relative; }
+  .doc .assina-recibo .linha img { position: absolute; left: 6px; bottom: -8px; height: 64px; }
+  .doc .assina-recibo b { display: block; font-weight: 500; margin-top: 6px; font-size: 15px; }
+  .doc .assina-recibo small { display: block; font-size: 13px; color: var(--tinta-suave); }
+</style>
+</head>
+<body>
+<article class="doc" id="orcamento" hidden>
+  <header class="faixa" data-bloco="faixa">
+    <div class="placa" data-bloco="placa"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M23 3 8 23h9l-2 14 15-20h-9z" fill="#0E5A8A"/></svg></div>
+    <div class="negocio">
+      <h1 class="vivo" data-vivo="nome">Elétrica Rocha</h1>
+      <p>CNPJ 11.444.777/0001-61 · (11) 90000-0101 · contato@eletricarocha.exemplo<br>Rua das Acácias, 120 · Vila Mariana · São Paulo/SP</p>
+    </div>
+    <div class="titulo"><b>Orçamento</b><span>nº 1</span></div>
+  </header>
+
+  <section class="resumo" data-bloco="resumo">
+    <div><span class="rotulo">Para</span><strong>Ana Souza</strong><small>(11) 90000-0202</small><small>Rua Coronel Lisboa, 48, ap. 32</small></div>
+    <div class="datas"><span class="rotulo">Emitido em</span><b>11/11/2026</b><span class="rotulo" style="display:block;margin-top:7px">Válido até</span><b>26/11/2026</b></div>
+    <div class="total"><span class="rotulo">Total</span><b class="vivo" data-vivo="total">R$ 650,00</b></div>
+  </section>
+
+  <table data-bloco="itens">
+    <thead><tr><th>Descrição</th><th>Qtd.</th><th>Valor unit.</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr class="grupo"><td colspan="4">Serviços</td></tr>
+      <tr><td>Instalação de ar-condicionado split 12.000 BTUs</td><td>1 <em>un</em></td><td>R$ 450,00</td><td>R$ 450,00</td></tr>
+      <tr class="grupo"><td colspan="4">Materiais</td></tr>
+      <tr><td>Tubulação de cobre com isolamento térmico</td><td>3 <em>m</em></td><td>R$ 40,00</td><td>R$ 120,00</td></tr>
+      <tr class="zebra"><td>Suporte para condensadora</td><td>1 <em>un</em></td><td>R$ 80,00</td><td>R$ 80,00</td></tr>
+    </tbody>
+  </table>
+
+  <section class="fecho" data-bloco="fecho">
+    <div>
+      <span class="rotulo">Condições de pagamento e garantia</span>
+      <p>Pagamento por Pix na conclusão do serviço. Garantia de 90 dias para a instalação.</p>
+    </div>
+    <div class="totais">
+      <div><span>Serviços</span><span>R$ 450,00</span></div>
+      <div><span>Materiais</span><span>R$ 200,00</span></div>
+      <div class="final" data-bloco="final"><span>Total</span><span class="vivo" data-vivo="final">R$ 650,00</span></div>
+    </div>
+  </section>
+
+  <section class="pix" data-bloco="pix">
+    <img src="./imagens/qr-exemplo.svg" alt="">
+    <div>
+      <b class="t">Pague com Pix</b>
+      <p>Abra o app do seu banco, escolha Pix e leia o código. Valor: R$ 650,00.</p>
+      <p class="chave">Chave Pix (CNPJ): <b>11.444.777/0001-61</b></p>
+    </div>
+  </section>
+
+  <section class="assinaturas" data-bloco="assinaturas">
+    <div><div class="linha"></div><b>Cliente: Ana Souza</b><small>Data: ____/____/________</small></div>
+    <div><div class="linha"><img src="./imagens/assinatura-prestador.svg" alt=""></div><b class="vivo" data-vivo="assina">Elétrica Rocha</b><small>Carlos Rocha</small></div>
+  </section>
+
+  <section class="fotos" data-bloco="fotos">
+    <span class="rotulo">Fotos</span>
+    <div class="grade">
+      <figure><img src="./imagens/foto-1-parede.jpg" alt=""><figcaption>Quarto: local da evaporadora</figcaption></figure>
+      <figure><img src="./imagens/foto-2-externa.jpg" alt=""><figcaption>Área de serviço: condensadora</figcaption></figure>
+      <figure><img src="./imagens/foto-3-quadro.jpg" alt=""><figcaption>Quadro: circuito do aparelho</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="feito">Feito com Orçanota · orcanota.com.br</div>
+  <div class="rodape">Orçamento nº 1 · Página 1 de 1</div>
+</article>
+
+<article class="doc" id="recibo" hidden>
+  <header class="faixa" data-bloco="faixa">
+    <div class="placa"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M23 3 8 23h9l-2 14 15-20h-9z" fill="#0E5A8A"/></svg></div>
+    <div class="negocio">
+      <h1 class="vivo" data-vivo="nome">Elétrica Rocha</h1>
+      <p>CNPJ 11.444.777/0001-61 · (11) 90000-0101 · contato@eletricarocha.exemplo<br>Rua das Acácias, 120 · Vila Mariana · São Paulo/SP</p>
+    </div>
+    <div class="titulo"><b>Recibo</b><span>nº 1</span></div>
+  </header>
+
+  <section class="caixa-valor" data-bloco="valor">
+    <div><span class="rotulo">Recebido de</span><strong>Ana Souza</strong><small>Referente ao orçamento nº 1</small></div>
+    <div class="valor"><span class="rotulo">Valor</span><b>R$ 650,00</b></div>
+  </section>
+
+  <p class="declaracao" data-bloco="declaracao">Recebi de <b>Ana Souza</b> a importância de <b>R$ 650,00</b> (seiscentos e cinquenta reais) referente a instalação de ar-condicionado split 12.000 BTUs, com tubulação de cobre e suporte para a condensadora.</p>
+  <p class="local">São Paulo, 13 de novembro de 2026.</p>
+
+  <section class="assina-recibo" data-bloco="assinatura">
+    <div class="linha"><img src="./imagens/assinatura-prestador.svg" alt=""></div>
+    <b class="vivo" data-vivo="assina">Elétrica Rocha</b>
+    <small>Carlos Rocha · CNPJ 11.444.777/0001-61</small>
+  </section>
+
+  <div class="rodape">Recibo nº 1 · Página 1 de 1</div>
+</article>
+
+<script>
+  const consulta = new URLSearchParams(location.search);
+  const tipo = consulta.get('tipo') || 'orcamento';
+  document.body.classList.toggle('completo', consulta.has('completo'));
+  document.body.classList.toggle('gratis', consulta.get('modelo') === 'gratis');
+  const doc = document.getElementById(tipo); doc.hidden = false;
+  // medidas (em px da página de 794 x 1123) do que a cena escreve por cima e dos blocos que ela aponta
+  const base = doc.getBoundingClientRect();
+  const ret = (el) => { const r = el.getBoundingClientRect(); return [r.left - base.left, r.top - base.top, r.width, r.height].map((v) => +v.toFixed(1)); };
+  const estilo = (el) => { const s = getComputedStyle(el); return { fonte: `${s.fontWeight} ${s.fontSize}`, alinha: s.textAlign, espaco: s.letterSpacing }; };
+  window.__medidas = {
+    vivo: Object.fromEntries([...doc.querySelectorAll('[data-vivo]')].map((el) => [el.dataset.vivo, { r: ret(el), ...estilo(el) }])),
+    blocos: Object.fromEntries([...doc.querySelectorAll('[data-bloco]')].map((el) => [el.dataset.bloco, ret(el)])),
+  };
+  document.title = JSON.stringify(window.__medidas);
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.DS_Store
+prototipos/epico/videos/
+prototipos/epico/capturas/

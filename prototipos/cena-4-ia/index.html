@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#04090f">
+  <title>Orçanota · protótipo da cena 4, "O envio" (fotografia + movimento por código)</title>
+  <link rel="stylesheet" href="./estilo.css">
+</head>
+<body>
+  <main>
+    <section class="cena" id="cena-4" aria-label="Cena 4: o envio do orçamento pelo WhatsApp">
+      <div class="palco">
+        <canvas class="quadro" aria-hidden="true"></canvas>
+        <p class="legenda">Um toque, e o orçamento já está no WhatsApp do cliente.</p>
+        <p class="descricao">À noite, numa rua de bairro, o eletricista toca em "PDF pelo WhatsApp" no celular. Um sinal de luz azul sai do aparelho, atravessa a rua por cima dos telhados, vira âmbar e chega à cliente, que está na porta de casa. No celular dela, a conversa com a Elétrica Rocha recebe o arquivo "Orçamento nº 1, Elétrica Rocha.pdf".</p>
+        <div class="carregando" role="status" aria-live="polite">
+          <span class="carregando-barra"><span></span></span>
+          <span class="carregando-texto">Carregando a cena…</span>
+        </div>
+        <div class="progresso" aria-hidden="true"><span></span></div>
+        <output class="medidor" hidden></output>
+      </div>
+    </section>
+    <section class="rodape">
+      <p><strong>Protótipo da cena 4, "O envio", com fotografia e movimento por código.</strong> Role para cima para voltar a animação. Esta página é só um teste de qualidade: ainda não faz parte do site.</p>
+    </section>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

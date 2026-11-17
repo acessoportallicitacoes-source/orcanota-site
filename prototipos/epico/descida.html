@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protótipo da descida</title>
+<link rel="stylesheet" href="/node_modules/@fontsource-variable/inter/index.css">
+<link rel="stylesheet" href="/node_modules/@fontsource-variable/urbanist/index.css">
+<link rel="stylesheet" href="./descida.css">
+</head>
+<body>
+
+<!-- Trecho preso: herói, CRIE, a dobra do avião e a saída da bancada em 3D -->
+<div id="trilho">
+  <div id="palco">
+    <div class="palavra" id="palavra" aria-hidden="true">crie</div>
+    <canvas id="cena"></canvas>
+    <div class="legenda" id="legenda">
+      <p class="olho" id="olho">Orçanota</p>
+      <h1 id="titulo">O orçamento chega antes de você guardar a escada.</h1>
+      <p class="apoio" id="apoio">Role para ver.</p>
+    </div>
+  </div>
+</div>
+
+<!-- O voo: a página desce e o avião puxa a descida -->
+<section id="voo">
+  <div class="palavra solta" aria-hidden="true">envie</div>
+  <p class="frase">Em PDF ou em texto, no WhatsApp que o seu cliente já usa.</p>
+</section>
+
+<!-- A chegada: a conversa -->
+<section id="conversa">
+  <div class="chat" id="chat">
+    <header><span class="avatar">A</span><div><b>Ana Souza</b><small>online</small></div></header>
+    <div class="balao meu" id="balao-pdf">
+      <div class="pdf"><span class="ic">PDF</span><div><b>Orçamento nº 1 · Elétrica Rocha.pdf</b><small>1 página · PDF</small></div></div>
+      <span class="hora">09:18 <i class="tiques" id="tiques">✓✓</i></span>
+    </div>
+    <div class="balao dela" id="balao-resposta">Pode fazer! 👍<span class="hora">09:19</span></div>
+  </div>
+</section>
+
+<section id="proxima">
+  <p class="olho">Próxima parada</p>
+  <div class="palavra solta" aria-hidden="true">receba</div>
+  <p class="frase">Aqui a bancada volta, o celular vibra com a aprovação e o recibo sai. Entra na próxima etapa.</p>
+</section>
+
+<canvas id="rastro" aria-hidden="true"></canvas>
+<div id="aviao" aria-hidden="true">
+  <svg viewBox="-60 -70 120 150">
+    <defs>
+      <linearGradient id="asaE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9dde2"/></linearGradient>
+      <linearGradient id="asaD" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f1ee"/><stop offset="1" stop-color="#b9bec6"/></linearGradient>
+    </defs>
+    <path d="M0 -66 L-54 62 L-10 44 Z" fill="url(#asaE)"/>
+    <path d="M0 -66 L54 62 L10 44 Z" fill="url(#asaD)"/>
+    <path d="M0 -66 L-10 44 L0 74 Z" fill="#c9ced5"/>
+    <path d="M0 -66 L10 44 L0 74 Z" fill="#9aa1ab"/>
+  </svg>
+</div>
+
+<script type="module" src="./descida.js"></script>
+</body>
+</html>

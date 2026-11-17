@@ -1,0 +1,162 @@
+/* O resto da página, depois da história: seções claras (o recibo vira este fundo) e o fecho escuro. */
+#resto { --papel: #F4F6F9; --tinta-e: #0F1B2D; --tinta-s: #4A5668; --linha: #D9DFE7; --marca: #0E5A8A; position: relative; background: var(--papel); color: var(--tinta-e); }
+.sec { padding: clamp(64px, 11vh, 140px) var(--margem); max-width: 1500px; margin: 0 auto; }
+.sec-cab { max-width: none; }
+.olho2 { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #a86a00; }
+.olho2::after { content: ""; width: 44px; height: 1px; background: currentColor; opacity: .6; }
+.sec h2 { margin: 16px 0 16px; font: 700 clamp(34px, 4.6vw, 76px)/1 "Urbanist Variable", Urbanist, system-ui, sans-serif; letter-spacing: -.035em; }
+.sec-cab p { margin: 0; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.55; color: var(--tinta-s); text-wrap: pretty; }
+
+/* entrada ao rolar */
+.revela { opacity: 0; translate: 0 34px; transition: opacity .9s cubic-bezier(.2, .7, .2, 1), translate 1.1s cubic-bezier(.16, 1, .3, 1); transition-delay: calc(var(--d, 0) * 90ms); }
+.revela.visto { opacity: 1; translate: none; }
+
+/* 3D leve: cada cartão descansa um pouco virado e acompanha o mouse */
+.tres-d { transform: perspective(1500px) rotateY(calc(var(--ry0, 0deg) + var(--ry, 0deg))) rotateX(var(--rx, 0deg)); transform-style: preserve-3d; will-change: transform; transition: opacity .9s cubic-bezier(.2, .7, .2, 1), translate .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1), box-shadow .5s; }
+.tres-d.mexendo { transition: opacity .9s, translate .7s cubic-bezier(.16, 1, .3, 1), transform .14s linear, box-shadow .5s; --ry0: 0deg; }
+
+/* botão de baixar */
+.botao-play { display: inline-flex; align-items: center; gap: 12px; height: 58px; padding: 0 24px 0 18px; border-radius: 14px; background: var(--ambar); color: #1a1204; text-decoration: none; font-weight: 700; font-size: 18px; line-height: 1.05; box-shadow: 0 10px 30px rgba(247, 178, 59, .28); transition: transform .25s cubic-bezier(.2, .9, .3, 1.4), box-shadow .25s; }
+.botao-play:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(247, 178, 59, .42); }
+.botao-play svg { width: 24px; height: 24px; fill: currentColor; }
+.botao-play small { display: block; font-size: 11px; font-weight: 600; letter-spacing: .04em; opacity: .75; }
+
+/* ---------- o documento: grátis e Pro ---------- */
+.paginas { margin-top: clamp(36px, 6vh, 72px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 72px); perspective: 2200px; }
+.pagina { margin: 0; }
+.pagina .papel { display: block; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 2px 4px rgba(15, 27, 45, .06), 0 30px 70px -20px rgba(15, 27, 45, .28); }
+.pagina.gratis .papel { --ry0: 5deg; } .pagina.pro .papel { --ry0: -5deg; }
+.pagina .papel:hover { box-shadow: 0 2px 4px rgba(15, 27, 45, .06), 0 44px 90px -24px rgba(15, 27, 45, .36); }
+.pagina img { display: block; width: 100%; height: auto; }
+.pagina figcaption { margin-top: 22px; display: flex; gap: 14px; align-items: baseline; font-size: clamp(15px, 1.15vw, 18px); color: var(--tinta-s); line-height: 1.5; }
+.pagina figcaption b { flex: none; font: 700 13px/1 "Inter Variable", Inter, sans-serif; letter-spacing: .1em; text-transform: uppercase; padding: 7px 11px; border-radius: 999px; border: 1px solid var(--linha); color: var(--tinta-e); background: #fff; }
+.pagina.pro figcaption b { background: var(--ambar); border-color: var(--ambar); color: #1a1204; }
+
+/* ---------- o app depois do sim ---------- */
+.app-grade { margin: clamp(36px, 6vh, 72px) 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 32px); }
+.app-grade { perspective: 2200px; }
+.app-grade li { background: #fff; border: 1px solid var(--linha); border-radius: 24px; padding: 22px 22px 26px; display: flex; flex-direction: column; box-shadow: 0 24px 50px -34px rgba(15, 27, 45, .3); }
+.app-grade li:nth-child(1) { --ry0: 5deg; } .app-grade li:nth-child(2) { --ry0: 2deg; } .app-grade li:nth-child(3) { --ry0: -2deg; } .app-grade li:nth-child(4) { --ry0: -5deg; }
+.app-grade li.visto:hover { translate: 0 -8px; box-shadow: 0 36px 70px -30px rgba(15, 27, 45, .42); }
+.aparelho { position: relative; aspect-ratio: 720 / 1180; border-radius: 26px 26px 0 0; overflow: hidden; background: #0b1016; padding: 7px 7px 0; margin-bottom: 20px; }
+.aparelho::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26%; background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff); }
+.aparelho img { display: block; width: 100%; height: auto; border-radius: 20px 20px 0 0; }
+.app-grade h3 { margin: 0 0 8px; font: 700 clamp(19px, 1.5vw, 24px)/1.15 "Urbanist Variable", Urbanist, sans-serif; letter-spacing: -.015em; }
+.app-grade p { margin: 0; color: var(--tinta-s); font-size: 15.5px; line-height: 1.5; }
+
+/* ---------- ofícios ---------- */
+.oficios { max-width: none; padding-left: 0; padding-right: 0; overflow: hidden; }
+.oficios .sec-cab { margin: 0 auto; padding: 0 var(--margem); max-width: 1500px; }
+.oficios .sec-cab > * { max-width: none; }
+.esteira { margin-top: clamp(28px, 5vh, 56px); display: flex; gap: 14px; width: max-content; animation: corre 60s linear infinite; }
+.esteira + .esteira { margin-top: 14px; animation-direction: reverse; animation-duration: 72s; }
+.esteira span { flex: none; padding: 14px 24px; border-radius: 999px; background: #fff; border: 1px solid var(--linha); font: 600 clamp(16px, 1.35vw, 21px)/1 "Inter Variable", Inter, sans-serif; white-space: nowrap; }
+.esteira span:nth-child(5n + 2) { background: var(--marca); border-color: var(--marca); color: #fff; }
+.esteira span:nth-child(7n + 4) { background: var(--ambar); border-color: var(--ambar); color: #1a1204; }
+.oficios:hover .esteira { animation-play-state: paused; }
+@keyframes corre { to { transform: translateX(-50%); } }
+.oficios-mais { margin: clamp(26px, 4vh, 44px) auto 0; padding: 0 var(--margem); max-width: 1500px; color: var(--tinta-s); font-size: clamp(15px, 1.15vw, 18px); }
+
+/* ---------- planos ---------- */
+.planos-grade { margin-top: clamp(36px, 6vh, 72px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(16px, 2vw, 32px); align-items: stretch; }
+.plano:not(.pro) { --ry0: 4deg; } .plano.pro { --ry0: -4deg; }
+.plano { box-shadow: 0 30px 70px -40px rgba(15, 27, 45, .4); }
+.plano.visto:hover { translate: 0 -6px; box-shadow: 0 44px 90px -40px rgba(15, 27, 45, .5); }
+.plano { border-radius: 28px; padding: clamp(26px, 3vw, 46px); background: #fff; border: 1px solid var(--linha); display: flex; flex-direction: column; }
+.plano h3 { margin: 0; font: 700 clamp(22px, 1.9vw, 30px)/1.1 "Urbanist Variable", Urbanist, sans-serif; letter-spacing: -.02em; }
+.plano .preco { margin: 18px 0 14px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 14px; }
+.plano .preco strong { font: 700 clamp(46px, 5.4vw, 88px)/1 "Urbanist Variable", Urbanist, sans-serif; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.plano .preco s { font-size: clamp(18px, 1.6vw, 24px); color: var(--tinta-s); text-decoration-thickness: 2px; }
+.plano .preco em { font-style: normal; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; background: var(--ambar); color: #1a1204; }
+.plano .resumo { margin: 0 0 18px; color: var(--tinta-s); font-size: 16px; line-height: 1.55; }
+.plano ul { margin: 0 0 24px; padding: 0; list-style: none; display: grid; gap: 11px; font-size: 16px; line-height: 1.4; }
+.plano li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+.plano li::before { content: ""; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--marca) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3 6-6.6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
+.plano .nota { margin: 0 0 22px; font-size: 14px; color: var(--tinta-s); }
+.botao-linha { align-self: flex-start; margin-top: auto; display: inline-flex; align-items: center; height: 54px; padding: 0 24px; border-radius: 14px; border: 1.5px solid var(--tinta-e); color: var(--tinta-e); text-decoration: none; font-weight: 700; font-size: 17px; transition: background .25s, color .25s; }
+.botao-linha:hover { background: var(--tinta-e); color: #fff; }
+.plano .botao-play { align-self: flex-start; margin-top: auto; }
+.plano.pro { background: radial-gradient(120% 90% at 0% 0%, #17466a 0%, #0b2536 55%, #071821 100%); border-color: #0b2536; color: #EEF3F8; position: relative; overflow: hidden; }
+.plano.pro::before { content: ""; position: absolute; right: -18%; top: -30%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(247, 178, 59, .34), rgba(247, 178, 59, 0) 65%); pointer-events: none; }
+.plano.pro .preco strong { color: var(--ambar); }
+.plano.pro .preco s, .plano.pro .resumo { color: #a9bccb; }
+.plano.pro li::before { background-color: var(--ambar); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3 6-6.6' fill='none' stroke='%231a1204' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.planos-promessa { margin: clamp(22px, 3.4vh, 36px) 0 0; font-size: clamp(15px, 1.15vw, 18px); color: var(--tinta-s); }
+
+/* ---------- dúvidas ---------- */
+.duvidas-grade { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 5vw, 90px); align-items: start; }
+.duvidas-grade .sec-cab { position: sticky; top: 12vh; }
+.duvidas-lista details { border-bottom: 1px solid var(--linha); }
+.duvidas-lista details:first-child { border-top: 1px solid var(--linha); }
+.duvidas-lista summary { list-style: none; cursor: pointer; padding: 22px 44px 22px 0; position: relative; font: 600 clamp(17px, 1.4vw, 22px)/1.3 "Inter Variable", Inter, sans-serif; transition: color .2s; }
+.duvidas-lista summary::-webkit-details-marker { display: none; }
+.duvidas-lista summary:hover { color: var(--marca); }
+.duvidas-lista summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 14px; height: 14px; margin-top: -7px; background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat, linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat; transition: transform .35s cubic-bezier(.16, 1, .3, 1); }
+.duvidas-lista details[open] summary::after { transform: rotate(135deg); }
+.duvidas-lista details p { margin: 0 0 24px; max-width: 46em; color: var(--tinta-s); font-size: 16.5px; line-height: 1.6; }
+.duvidas-suporte { margin-top: 22px; font-size: 15px; color: var(--tinta-s); }
+.duvidas-suporte a { color: var(--marca); font-weight: 600; }
+
+/* ---------- chamada final e rodapé: volta a bancada ---------- */
+.chamada { position: relative; overflow: hidden; background: #03090c; color: #EEF3F8; padding: clamp(90px, 20vh, 240px) var(--margem); text-align: center; isolation: isolate; }
+.chamada::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(3, 9, 12, .86) 0%, rgba(3, 9, 12, .2) 46%, rgba(3, 9, 12, .82) 100%), url("./imagens/cenario-bancada-paisagem.webp") center 78% / cover no-repeat; }
+.chamada h2 { margin: 0 auto 18px; max-width: 15em; font: 700 clamp(36px, 5.6vw, 96px)/.98 "Urbanist Variable", Urbanist, sans-serif; letter-spacing: -.035em; text-wrap: balance; }
+.chamada h2 em { font-style: normal; color: var(--ambar); }
+.chamada p { margin: 0 auto 34px; max-width: 34em; color: #b9c8d4; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.55; }
+.rodape { background: #03090c; color: #9FB2C2; padding: 34px var(--margem) 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; font-size: 14.5px; border-top: 1px solid rgba(255, 255, 255, .08); }
+.rodape img { display: block; height: 28px; width: auto; }
+.rodape nav { display: flex; flex-wrap: wrap; gap: 8px 26px; }
+.rodape a { color: inherit; text-decoration: none; transition: color .2s; }
+.rodape a:hover { color: #fff; }
+.rodape p { margin: 0; }
+
+@media (max-width: 980px) {
+  .app-grade { grid-template-columns: repeat(2, 1fr); }
+  .planos-grade, .duvidas-grade { grid-template-columns: 1fr; }
+  .duvidas-grade .sec-cab { position: static; }
+}
+@media (max-width: 620px) {
+  .paginas { grid-template-columns: 1fr; }
+  .tres-d { --ry0: 0deg !important; }
+  .app-grade { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; margin-left: calc(var(--margem) * -1); margin-right: calc(var(--margem) * -1); padding: 0 var(--margem) 14px; scrollbar-width: none; }
+  .app-grade::-webkit-scrollbar { display: none; }
+  .app-grade li { scroll-snap-align: center; }
+  .plano .botao-play, .botao-linha { align-self: stretch; justify-content: center; }
+  .rodape { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .revela { opacity: 1; translate: none; transition: none; }
+  .tres-d { --ry0: 0deg !important; }
+  .esteira { animation: none; flex-wrap: wrap; width: auto; padding: 0 var(--margem); }
+  .esteira [aria-hidden="true"] { display: none; }
+}
+/* o atraso em cascata vale só para a entrada; ao passar o mouse a resposta é imediata */
+.tres-d.mexendo, .tres-d:hover { transition-delay: 0s; }
+
+/* ---------- rodapé: botão com cara de link ---------- */
+.rodape button.link { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; transition: color .2s; }
+.rodape button.link:hover { color: #fff; }
+
+/* ---------- pop-ups da política e dos termos ---------- */
+.dialogo { width: min(760px, calc(100vw - 28px)); max-height: min(86vh, 900px); padding: 0; border: 0; border-radius: 26px; background: #F4F6F9; color: #0F1B2D; box-shadow: 0 40px 120px rgba(0, 0, 0, .55); overflow: auto; overscroll-behavior: contain; }
+.dialogo::backdrop { background: rgba(3, 9, 12, .66); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.dialogo[open] { animation: abre-dialogo .35s cubic-bezier(.16, 1, .3, 1); }
+@keyframes abre-dialogo { from { opacity: 0; transform: translateY(18px) scale(.98); } }
+.dialogo-fechar { position: sticky; top: 14px; float: right; margin: 14px 14px 0 0; width: 42px; height: 42px; border-radius: 50%; border: 1px solid #D9DFE7; background: #fff; color: #0F1B2D; font-size: 24px; line-height: 1; cursor: pointer; transition: background .2s, color .2s; }
+.dialogo-fechar:hover { background: #0F1B2D; color: #fff; }
+.legal { padding: clamp(26px, 5vw, 52px); }
+.legal h2 { margin: 0; font: 700 clamp(28px, 4vw, 42px)/1.05 "Urbanist Variable", Urbanist, system-ui, sans-serif; letter-spacing: -.03em; }
+.legal h3 { margin: 28px 0 0; font: 700 20px/1.25 "Urbanist Variable", Urbanist, system-ui, sans-serif; letter-spacing: -.01em; }
+.legal p, .legal li { margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #4A5668; }
+.legal ul { margin: 6px 0 0; padding-left: 20px; }
+.legal a { color: #0E5A8A; font-weight: 600; }
+.legal .doc-data { margin-top: 6px; font-size: 14px; }
+
+/* ---------- aviso de cookies (só aparece quando há ID de medição) ---------- */
+.cookies { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 760px; margin: 0 auto; padding: 16px 18px; border-radius: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; color: #EEF3F8; font-size: 14.5px; line-height: 1.45; background: rgba(9, 22, 30, .86); border: 1px solid rgba(190, 225, 255, .2); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); box-shadow: 0 24px 60px rgba(0, 0, 0, .45); }
+.cookies[hidden] { display: none; }
+.cookies p { margin: 0; flex: 1 1 280px; }
+.cookies a { color: #fff; }
+.cookies-acoes { display: flex; gap: 10px; }
+.cookies-botao { height: 42px; padding: 0 18px; border-radius: 12px; border: 1px solid var(--ambar); background: var(--ambar); color: #1a1204; font: 700 15px/1 "Inter Variable", Inter, sans-serif; cursor: pointer; }
+.cookies-botao.contorno { background: none; border-color: rgba(255, 255, 255, .35); color: #EEF3F8; }

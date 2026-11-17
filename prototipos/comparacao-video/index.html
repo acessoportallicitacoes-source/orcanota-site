@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#071F2E">
+  <title>Orçanota · comparação de 3 modelos de vídeo na cena 4</title>
+  <link rel="stylesheet" href="./estilo.css">
+</head>
+<body>
+  <main>
+    <header class="topo">
+      <p class="etiqueta">Protótipo · cena 4, "O envio"</p>
+      <h1>Três modelos de vídeo, o mesmo clipe</h1>
+      <p class="resumo">A mesma foto como primeiro quadro, o mesmo pedido de movimento, 6 segundos, sem áudio. O sinal azul que vira âmbar é desenhado por código por cima, igual nos três, para ver como fica no conjunto.</p>
+      <div class="controles">
+        <label class="chave"><input type="checkbox" id="mostra-sinal" checked> <span>Mostrar o sinal</span></label>
+        <button type="button" id="reinicia">Reiniciar os três juntos</button>
+      </div>
+    </header>
+
+    <section class="grade" aria-label="Os três vídeos">
+      <article class="cartao" data-modelo="veo-3.1-lite">
+        <div class="quadro">
+          <video src="./videos/veo-3.1-lite.mp4" poster="./videos/veo-3.1-lite.jpg" muted loop playsinline preload="metadata" width="1920" height="1080" aria-label="Clipe gerado pelo Veo 3.1 Lite: o eletricista e a cliente em frente à casa dela, à noite"></video>
+          <canvas aria-hidden="true"></canvas>
+        </div>
+        <h2>Google Veo 3.1 Lite</h2>
+        <dl>
+          <div><dt>Duração</dt><dd>6 s</dd></div>
+          <div><dt>Resolução</dt><dd>1920 × 1080</dd></div>
+          <div><dt>Custo</dt><dd>US$ 0,30 <small>(US$ 0,05/s)</small></dd></div>
+        </dl>
+        <p class="nota">Câmera quase parada. É a imagem mais nítida das três. A cliente inclina demais a cabeça por um instante.</p>
+      </article>
+
+      <article class="cartao" data-modelo="kling-v3.0-std">
+        <div class="quadro">
+          <video src="./videos/kling-v3.0-std.mp4" poster="./videos/kling-v3.0-std.jpg" muted loop playsinline preload="metadata" width="1280" height="720" aria-label="Clipe gerado pelo Kling v3.0 Standard: o eletricista e a cliente em frente à casa dela, à noite"></video>
+          <canvas aria-hidden="true"></canvas>
+        </div>
+        <h2>Kling v3.0 Standard</h2>
+        <dl>
+          <div><dt>Duração</dt><dd>6 s</dd></div>
+          <div><dt>Resolução</dt><dd>1280 × 720</dd></div>
+          <div><dt>Custo</dt><dd>US$ 0,504 <small>(US$ 0,084/s)</small></dd></div>
+        </dl>
+        <p class="nota">A câmera avança devagar e sem tremer, como pedido. Gestos pequenos, rostos estáveis. Imagem um pouco mais macia (só faz 720p).</p>
+      </article>
+
+      <article class="cartao" data-modelo="veo-3.1-fast">
+        <div class="quadro">
+          <video src="./videos/veo-3.1-fast.mp4" poster="./videos/veo-3.1-fast.jpg" muted loop playsinline preload="metadata" width="1280" height="720" aria-label="Clipe gerado pelo Veo 3.1 Fast: o eletricista e a cliente em frente à casa dela, à noite"></video>
+          <canvas aria-hidden="true"></canvas>
+        </div>
+        <h2>Google Veo 3.1 Fast</h2>
+        <dl>
+          <div><dt>Duração</dt><dd>6 s</dd></div>
+          <div><dt>Resolução</dt><dd>1280 × 720</dd></div>
+          <div><dt>Custo</dt><dd>US$ 0,48 <small>(US$ 0,08/s)</small></dd></div>
+        </dl>
+        <p class="nota">Mais "atuação": ela olha para ele e sorri. No fim ele se vira e abaixa o celular, o que foge do pedido e do sinal.</p>
+      </article>
+    </section>
+
+    <section class="rodape">
+      <details>
+        <summary>O pedido de movimento, igual para os três</summary>
+        <p>Plano único e contínuo, à noite, com movimento sutil e natural. Câmera: avanço muito lento e suave em direção aos dois, sem tremer, sem zoom brusco. O eletricista fica onde está e mexe no celular com gestos pequenos e realistas. A cliente, na porta acesa, olha o celular, respira, inclina de leve a cabeça e sorri. A luz da porta e da arandela varia muito pouco; as folhas das plantas se mexem com a brisa. Mesmos rostos, mãos e roupas do primeiro quadro; ninguém novo entra em cena; sem texto.</p>
+        <p>Primeiro quadro: o plano aberto corrigido da cena 4 (os dois em frente à mesma casa). Vídeos gerados pelo OpenRouter e regravados em H.264 para a web. O Veo aceita 1080p; o Kling Standard, só 720p.</p>
+      </details>
+      <p><strong>Esta página é só um teste de qualidade:</strong> ainda não faz parte do site.</p>
+    </section>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

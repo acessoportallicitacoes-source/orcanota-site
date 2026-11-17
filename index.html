@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orçanota: o orçamento chega antes de você guardar a escada</title>
+<meta name="description" content="Crie o orçamento no celular, envie em PDF pelo WhatsApp e gere o recibo quando o cliente pagar. Grátis para sempre, sem cadastro e sem internet. Para eletricistas, encanadores, pintores e todo prestador de serviço.">
+<meta name="theme-color" content="#03090c">
+<link rel="canonical" href="https://orcanota.com.br/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Orçanota: o orçamento chega antes de você guardar a escada">
+<meta property="og:description" content="Orçamento com cara de empresa, direto no WhatsApp do cliente, em menos de 1 minuto. Grátis para sempre.">
+<meta property="og:url" content="https://orcanota.com.br/">
+<meta property="og:image" content="https://orcanota.com.br/brand/icone-512.png">
+<link rel="stylesheet" href="/src/epico/historia.css">
+<link rel="stylesheet" href="/src/epico/pagina.css">
+</head>
+<body>
+
+<!-- A história: este trecho é mais alto que a tela; o palco fica preso enquanto a rolagem conduz as cenas -->
+<div id="historia">
+<div id="preso">
+<canvas id="palco" aria-hidden="true"></canvas>
+
+<header class="topo">
+  <a class="marca" href="#" aria-label="Orçanota"><img class="no-escuro" src="/src/assets/logo-escuro-transparente.svg" alt="Orçanota" height="30"><img class="no-claro" src="/src/assets/logo-horizontal.svg" alt="" height="30"></a>
+  <a class="baixar-mini" data-play data-local="topo" href="#baixar">Baixar grátis</a>
+</header>
+
+<div id="interface">
+
+  <main class="heroi">
+    <p class="olho entra" style="--i:0">App de orçamentos e recibos para Android</p>
+    <h1 id="titulo" aria-label="O orçamento chega antes de você guardar a escada.">
+      <span class="linha"><span class="p">O</span> <span class="p">orçamento</span> <span class="p">chega</span></span>
+      <span class="linha"><span class="p">antes</span> <span class="p">de</span> <span class="p">você</span></span>
+      <span class="linha"><span class="p">guardar</span> <span class="p">a</span> <span class="p ambar">escada.</span></span>
+    </h1>
+    <p class="apoio entra" style="--i:1">Crie o orçamento no celular, envie em PDF pelo WhatsApp e gere o recibo quando o cliente pagar. Sem conta e sem internet.</p>
+    <div class="acoes entra" style="--i:2">
+      <label class="negocio">
+        <span>Nome do seu negócio</span>
+        <input id="negocio" type="text" maxlength="26" autocomplete="off" spellcheck="false" placeholder="Ex.: Elétrica Rocha" enterkeyhint="done">
+      </label>
+      <a class="baixar" data-play data-local="abertura" href="#baixar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.6v16.8a1 1 0 0 0 1.5.86l14.2-8.4a1 1 0 0 0 0-1.72L6.5 2.74A1 1 0 0 0 5 3.6Z"/></svg>
+        <span><small>Baixar no</small>Google Play</span>
+      </a>
+    </div>
+    <p class="eco entra" style="--i:3" id="eco" aria-live="polite">Digite e veja o celular te receber pelo nome.</p>
+  </main>
+
+  <!-- As quatro funções em destaque: presas à lateral do celular -->
+  <nav id="funcoes" aria-label="Funções do app">
+    <button class="funcao" data-f="recibo"><i class="ponto"></i><i class="fio"></i><span class="ficha"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Zm3 5h6M9 12h6M9 16h3" /></svg>Recibo</span></button>
+    <button class="funcao" data-f="relatorios"><i class="ponto"></i><i class="fio"></i><span class="ficha"><svg viewBox="0 0 24 24"><path d="M5 20V10m7 10V4m7 16v-7" /></svg>Relatórios</span></button>
+    <button class="funcao" data-f="empresa"><i class="ponto"></i><i class="fio"></i><span class="ficha"><svg viewBox="0 0 24 24"><path d="M4 9l1.500-5h13L20 9M4 9v11h16V9M4 9c0 1.700 1.300 3 2.700 3S9.300 10.700 9.300 9c0 1.700 1.300 3 2.700 3s2.700-1.300 2.700-3c0 1.700 1.300 3 2.700 3S20 10.700 20 9M10 20v-5h4v5" /></svg>Sua empresa</span></button>
+    <button class="funcao" data-f="pro"><i class="ponto"></i><i class="fio"></i><span class="ficha"><svg viewBox="0 0 24 24"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm-3.500-.800L7 22l5-2.500L17 22l-1.500-7.800M12 6.500l.900 1.800 2 .300-1.400 1.400.300 2-1.800-.900-1.800.900.300-2-1.400-1.400 2-.300.900-1.800Z" /></svg>Seja Pro</span></button>
+  </nav>
+
+  <svg id="feixe" aria-hidden="true"><defs>
+    <linearGradient id="feixe-cor" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#bfe0ff" stop-opacity=".26"/><stop offset="1" stop-color="#bfe0ff" stop-opacity=".03"/></linearGradient>
+  </defs><polygon id="feixe-forma" fill="url(#feixe-cor)"/></svg>
+
+  <!-- O "holograma": painel de vidro que sai do celular com a função aberta -->
+  <aside id="holo" aria-hidden="true">
+    <div class="holo-vidro">
+      <div class="holo-topo">
+        <div class="holo-abas" role="tablist">
+          <button data-f="recibo" aria-label="Recibo"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Zm3 5h6M9 12h6M9 16h3" /></svg></button>
+          <button data-f="relatorios" aria-label="Relatórios"><svg viewBox="0 0 24 24"><path d="M5 20V10m7 10V4m7 16v-7" /></svg></button>
+          <button data-f="empresa" aria-label="Sua empresa"><svg viewBox="0 0 24 24"><path d="M4 9l1.500-5h13L20 9M4 9v11h16V9M4 9c0 1.700 1.300 3 2.700 3S9.300 10.700 9.300 9c0 1.700 1.300 3 2.700 3s2.700-1.300 2.700-3c0 1.700 1.300 3 2.700 3S20 10.700 20 9M10 20v-5h4v5" /></svg></button>
+          <button data-f="pro" aria-label="Seja Pro"><svg viewBox="0 0 24 24"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm-3.500-.800L7 22l5-2.500L17 22l-1.500-7.800M12 6.500l.900 1.800 2 .300-1.400 1.400.300 2-1.800-.900-1.800.900.300-2-1.400-1.400 2-.300.900-1.800Z" /></svg></button>
+        </div>
+        <button class="holo-fechar" id="holo-fechar" aria-label="Fechar">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <p class="holo-olho"><span id="holo-nome">Recibo</span><b id="holo-selo" hidden>Pro</b></p>
+      <h2 id="holo-titulo">Recibo em um toque</h2>
+      <p id="holo-texto"></p>
+      <div class="holo-recorte"><canvas id="holo-tela" width="656" height="330"></canvas><i class="varredura"></i></div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- O que a história escreve por cima da cena -->
+<div id="camada">
+  <section class="legenda" data-de="0.16" data-ate="0.6"><b>01</b><h2>Crie</h2><p>Cliente, serviço e valor. É só isso que o app pede.</p></section>
+  <section class="legenda" data-de="0.66" data-ate="1.0"><b>01</b><h2>Vira PDF na hora</h2><p>Sem computador e sem planilha: o orçamento sai pronto do celular.</p></section>
+  <section class="legenda" data-de="1.06" data-ate="1.4"><b>01</b><h2>Com cara de empresa</h2><p>Sua logo, sua cor, QR Code do Pix, assinatura e fotos do serviço.</p></section>
+  <section class="legenda" data-de="1.96" data-ate="2.74"><b>02</b><h2>Envie</h2><p>Em PDF, direto no WhatsApp do cliente.</p></section>
+  <section class="legenda" data-de="2.96" data-ate="3.4"><b>02</b><h2>Chega em segundos</h2><p>Do seu celular para o do cliente, pelo WhatsApp.</p></section>
+  <section class="legenda vidro" data-de="3.78" data-ate="4.48"><b>02</b><h2>Onde o cliente já está</h2><p>Ele abre o PDF na conversa, confere e responde na hora.</p></section>
+  <section class="legenda" data-de="4.74" data-ate="5.18"><b>03</b><h2>Receba</h2><p>Serviço feito, o recibo sai em um toque, com o valor por extenso.</p></section>
+  <section class="legenda" id="recebido"><b>03</b><p>Recebido em novembro</p><strong>R$ 0,00</strong></section>
+  <div class="aponta" id="ap-logo"><i></i><span>Sua logo e sua cor</span></div>
+  <div class="aponta" id="ap-pix"><i></i><span>QR Code do Pix</span></div>
+  <div class="aponta" id="ap-fotos"><i></i><span>Fotos do serviço</span></div>
+  <div id="onda" aria-hidden="true"></div>
+  <div id="clarao" aria-hidden="true"></div>
+  <div id="claro" aria-hidden="true"></div>
+</div>
+
+<footer class="etapas entra" style="--i:5">
+  <ol>
+    <li><b>01</b> Crie</li><li><b>02</b> Envie</li><li><b>03</b> Receba</li>
+  </ol>
+  <span class="role"><i></i>Role para criar o primeiro orçamento</span>
+</footer>
+<i id="progresso" aria-hidden="true"></i>
+</div>
+</div>
+
+<main id="resto">
+
+  <section class="sec" id="documento" aria-labelledby="doc-titulo">
+    <div class="sec-cab revela">
+      <span class="olho2">O documento</span>
+      <h2 id="doc-titulo">O mesmo orçamento, com a sua cara.</h2>
+      <p>No grátis, o PDF já sai limpo, numerado e com a sua chave Pix. No Pro, entra a sua marca: logo, cor, QR Code do Pix, assinatura e fotos do serviço.</p>
+    </div>
+    <div class="paginas">
+      <figure class="pagina gratis revela" style="--d:1">
+        <span class="papel tres-d"><img src="/src/epico/imagens/pagina-gratis.webp" alt="Orçamento no modelo grátis: nome do negócio, cliente, itens, total e chave Pix" width="1191" height="1685" loading="lazy" decoding="async"></span>
+        <figcaption><b>Grátis</b>Limpo e direto: quem, quanto e até quando, logo no topo.</figcaption>
+      </figure>
+      <figure class="pagina pro revela" style="--d:2">
+        <span class="papel tres-d"><img src="/src/epico/imagens/pagina-pro.webp" alt="Orçamento no modelo Pro: faixa com logo e cor da empresa, QR Code do Pix, assinatura e fotos" width="1191" height="1685" loading="lazy" decoding="async"></span>
+        <figcaption><b>Pro</b>Sua logo e sua cor, QR Code do Pix, assinatura e fotos do serviço.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="app" aria-labelledby="app-titulo">
+    <div class="sec-cab revela">
+      <span class="olho2">Depois do sim</span>
+      <h2 id="app-titulo">O sim é só o começo.</h2>
+      <p>Do primeiro orçamento ao dinheiro na conta, o Orçanota organiza o seu negócio sem planilha, sem caderno e sem complicação.</p>
+    </div>
+    <ul class="app-grade">
+      <li class="revela tres-d" style="--d:0"><div class="aparelho"><img src="/src/epico/telas/15-inicio-resumo.webp" alt="Tela inicial com o valor recebido no mês" width="720" height="1600" loading="lazy" decoding="async"></div><h3>Saiba quanto entrou no mês</h3><p>Recebido e aprovado aparecem logo na primeira tela. Você abre o app e já sabe como está o mês.</p></li>
+      <li class="revela tres-d" style="--d:1"><div class="aparelho"><img src="/src/epico/telas/12-recibo.webp" alt="Tela do recibo gerado a partir do orçamento" width="720" height="1600" loading="lazy" decoding="async"></div><h3>Recibo em um toque</h3><p>O orçamento aprovado vira recibo, do valor inteiro ou de uma parte, com o valor por extenso.</p></li>
+      <li class="revela tres-d" style="--d:2"><div class="aparelho"><img src="/src/epico/telas/14-ficha-cliente.webp" alt="Ficha da cliente com o histórico de orçamentos e recibos" width="720" height="1600" loading="lazy" decoding="async"></div><h3>Cliente que volta</h3><p>Cada cliente guarda o histórico. Quando ele ligar de novo, você já sabe o que fez e quanto cobrou.</p></li>
+      <li class="revela tres-d" style="--d:3"><div class="aparelho"><img src="/src/epico/telas/05-documentos.webp" alt="Lista de documentos com o status de cada orçamento" width="720" height="1600" loading="lazy" decoding="async"></div><h3>Nenhum dinheiro esquecido</h3><p>Enviado, aprovado, pago: veja num relance quem ainda não respondeu e quem ainda não pagou.</p></li>
+    </ul>
+  </section>
+
+  <section class="sec oficios" id="oficios" aria-labelledby="oficios-titulo">
+    <div class="sec-cab revela">
+      <span class="olho2">Para quem é</span>
+      <h2 id="oficios-titulo">Feito para quem resolve.</h2>
+    </div>
+    <div class="esteira" data-esteira>
+      <span>Eletricista</span><span>Encanador</span><span>Pintor</span><span>Pedreiro</span><span>Gesseiro</span><span>Técnico de ar-condicionado</span><span>Marceneiro</span><span>Serralheiro</span><span>Vidraceiro</span><span>Azulejista</span>
+    </div>
+    <div class="esteira" data-esteira>
+      <span>Telhadista</span><span>Instalador de câmeras</span><span>Marido de aluguel</span><span>Montador de móveis</span><span>Chaveiro</span><span>Jardineiro</span><span>Piscineiro</span><span>Dedetizador</span><span>Técnico de refrigeração</span><span>Impermeabilizador</span>
+    </div>
+    <p class="oficios-mais revela">Diarista, manicure, fotógrafo ou freelancer? Se você passa preço e dá recibo, o Orçanota foi feito para você também.</p>
+  </section>
+
+  <section class="sec" id="planos" aria-labelledby="planos-titulo">
+    <div class="sec-cab revela">
+      <span class="olho2">Planos</span>
+      <h2 id="planos-titulo">Comece grátis. Cresça com o Pro.</h2>
+      <p>O grátis resolve o dia a dia, sem limite e sem prazo. O Pro é um pagamento único para quem quer a própria marca em cada orçamento.</p>
+    </div>
+    <div class="planos-grade">
+      <div class="plano revela tres-d" style="--d:1">
+        <h3>Grátis, para sempre</h3>
+        <p class="preco"><strong>R$ 0</strong></p>
+        <p class="resumo">Tudo para orçar, fechar e receber. Sem limite de orçamentos, sem cartão de crédito e sem prazo para acabar.</p>
+        <ul>
+          <li>Orçamentos e recibos sem limite</li>
+          <li>PDF ou resumo pelo WhatsApp</li>
+          <li>Clientes da agenda do celular</li>
+          <li>Chave Pix no orçamento</li>
+          <li>Status e resumo do mês</li>
+          <li>Cópia de segurança</li>
+        </ul>
+        <p class="nota">Um anúncio discreto, só na tela inicial.</p>
+        <a class="botao-linha" data-play data-local="planos-gratis" href="#baixar">Baixar grátis</a>
+      </div>
+      <div class="plano pro revela tres-d" style="--d:2">
+        <h3>Pro: pague uma vez, use para sempre</h3>
+        <p class="preco"><s>R$ 99,90</s><strong>R$ 69,90</strong><em>preço de lançamento</em></p>
+        <p class="resumo">Sua marca em cada orçamento e as ferramentas de quem leva o negócio a sério. Sem mensalidade.</p>
+        <ul>
+          <li>Sua logo e suas cores no PDF, sem o rodapé do Orçanota</li>
+          <li>QR Code do Pix com o valor: o cliente aponta a câmera e paga</li>
+          <li>Fotos do serviço e assinatura do cliente no orçamento</li>
+          <li>Catálogo de serviços e materiais com custo, preço e margem</li>
+          <li>Modelos prontos para o seu ofício</li>
+          <li>Relatórios por período e calculadora do preço da sua hora</li>
+          <li>Sem anúncios</li>
+          <li>Todas as novidades do Pro, sem pagar de novo</li>
+        </ul>
+        <a class="botao-play" data-play data-local="planos" href="#baixar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.6v16.8a1 1 0 0 0 1.5.86l14.2-8.4a1 1 0 0 0 0-1.72L6.5 2.74A1 1 0 0 0 5 3.6Z"/></svg><span><small>Baixar no</small>Google Play</span></a>
+      </div>
+    </div>
+    <p class="planos-promessa revela">O que é grátis hoje continua grátis amanhã. Palavra nossa.</p>
+  </section>
+
+  <section class="sec" id="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="duvidas-grade">
+      <div class="sec-cab revela">
+        <span class="olho2">Dúvidas</span>
+        <h2 id="duvidas-titulo">Antes de baixar, tire suas dúvidas.</h2>
+        <p class="duvidas-suporte">Ficou alguma? Escreva para <a href="mailto:suporte@orcanota.com.br">suporte@orcanota.com.br</a>. Gente de verdade responde, em até 3 dias úteis.</p>
+      </div>
+      <div class="duvidas-lista revela" style="--d:1">
+        <details><summary>É grátis mesmo?</summary><p>É, e sem pegadinha. Orçamentos e recibos sem limite, para sempre, sem pedir cartão. O que é grátis hoje continua grátis nas próximas versões. O Pro é opcional, para quem quer a própria marca no PDF e ferramentas a mais.</p></details>
+        <details><summary>Preciso criar conta?</summary><p>Não. Instalou, abriu, já faz o primeiro orçamento. Sem cadastro, sem senha e sem e-mail de confirmação.</p></details>
+        <details><summary>Funciona sem internet?</summary><p>Funciona. Dá para montar orçamentos e recibos até no subsolo da obra, sem sinal. A internet só entra na hora de enviar.</p></details>
+        <details><summary>Como o cliente recebe o orçamento?</summary><p>Em PDF ou num resumo em texto, pelo WhatsApp, por e-mail ou pelo app que você preferir. Ele abre direto no celular, sem instalar nada.</p></details>
+        <details><summary>O Pro é mensalidade?</summary><p>Não. Você paga uma vez pela Google Play e é seu para sempre, com todas as novidades do Pro que vierem. Nada de cobrança todo mês.</p></details>
+        <details><summary>Dá para colocar a minha logo?</summary><p>Dá, no Pro: o PDF sai com a sua logo e as suas cores, sem o rodapé do Orçanota. No grátis, você vê a prévia de como fica antes de decidir.</p></details>
+        <details><summary>Tem para iPhone?</summary><p>Por enquanto, só para Android, na Google Play.</p></details>
+        <details><summary>Troquei de celular. E agora?</summary><p>Seus orçamentos vão junto. No celular antigo, salve uma cópia em Mais, Cópia de segurança, e restaure no novo. O Pro volta em Restaurar compra, sem pagar de novo.</p></details>
+        <details><summary>O recibo vale como nota fiscal?</summary><p>Não. Ele comprova o pagamento entre você e o cliente. Se o serviço exige nota fiscal, emita pelos meios oficiais.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="chamada" id="baixar" aria-labelledby="chamada-titulo">
+    <h2 id="chamada-titulo" class="revela">Seu próximo orçamento pode sair em <em>menos de 1 minuto.</em></h2>
+    <p class="revela" style="--d:1">Baixe grátis, mande o primeiro hoje e sinta a diferença na resposta dos seus clientes.</p>
+    <a class="botao-play revela" style="--d:2" data-play data-local="final" href="#baixar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.6v16.8a1 1 0 0 0 1.5.86l14.2-8.4a1 1 0 0 0 0-1.72L6.5 2.74A1 1 0 0 0 5 3.6Z"/></svg><span><small>Baixar no</small>Google Play</span></a>
+  </section>
+</main>
+
+<footer class="rodape">
+  <img src="/src/assets/logo-escuro-transparente.svg" alt="Orçanota" width="120" height="28" loading="lazy">
+  <nav aria-label="Rodapé">
+    <a href="/privacidade/" data-dialogo="privacidade">Privacidade</a>
+    <a href="/termos/" data-dialogo="termos">Termos de uso</a>
+    <button type="button" class="link" data-cookies>Cookies</button>
+    <a href="mailto:suporte@orcanota.com.br">suporte@orcanota.com.br</a>
+  </nav>
+  <p>© 2026 Orçanota</p>
+</footer>
+
+<!-- Política e termos em pop-up. O texto vem de src/content (o mesmo das páginas /privacidade/ e /termos/). -->
+<dialog class="dialogo" id="dialogo-privacidade" aria-labelledby="privacidade-titulo">
+  <button type="button" class="dialogo-fechar" data-fechar aria-label="Fechar">×</button>
+  <div class="legal"><!-- @include content/privacidade.html --></div>
+</dialog>
+<dialog class="dialogo" id="dialogo-termos" aria-labelledby="termos-titulo">
+  <button type="button" class="dialogo-fechar" data-fechar aria-label="Fechar">×</button>
+  <div class="legal"><!-- @include content/termos.html --></div>
+</dialog>
+
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies do Google Analytics para contar visitas e cliques. Nada do app é enviado. <a href="/privacidade/" data-dialogo="privacidade">Saiba mais</a></p>
+  <div class="cookies-acoes">
+    <button type="button" class="cookies-botao contorno" data-consentimento="recusar">Recusar</button>
+    <button type="button" class="cookies-botao" data-consentimento="aceitar">Aceitar</button>
+  </div>
+</div>
+
+<script type="module" src="/src/epico/js/main.js"></script>
+<script type="module" src="/src/epico/js/secoes.js"></script>
+</body>
+</html>

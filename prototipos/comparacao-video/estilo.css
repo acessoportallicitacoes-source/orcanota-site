@@ -1,0 +1,64 @@
+@import '@fontsource-variable/urbanist';
+@import '@fontsource-variable/inter';
+
+:root {
+  --azul: #0E5A8A;
+  --azul-claro: #7EC0E6;
+  --ambar: #F5A30A;
+  --noite: #0A2E44;
+  --noite-funda: #071F2E;
+  --tinta-clara: #BCDCEE;
+  --display: 'Urbanist Variable', 'Urbanist', system-ui, sans-serif;
+  --texto: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --margem: clamp(16px, 4vw, 56px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; color: #fff; font: 16px/1.55 var(--texto);
+  background: radial-gradient(120% 60% at 50% -10%, rgb(14 90 138 / .35), transparent 60%), linear-gradient(var(--noite-funda), #04090f 70%);
+  background-attachment: fixed;
+}
+main { max-width: 1680px; margin: 0 auto; padding: clamp(28px, 5vw, 64px) var(--margem) 64px; }
+
+.topo { max-width: 60em; margin-bottom: clamp(24px, 4vw, 44px); }
+.etiqueta { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--azul-claro); }
+h1 { margin: 0; font: 800 clamp(30px, 4.4vw, 54px)/1.04 var(--display); letter-spacing: -.03em; text-wrap: balance; }
+.resumo { margin: 14px 0 0; max-width: 46em; color: var(--tinta-clara); font-size: clamp(16px, 1.25vw, 18px); }
+
+.controles { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 22px; }
+.chave { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; font-weight: 500; }
+.chave input { width: 20px; height: 20px; accent-color: var(--ambar); }
+button {
+  min-height: 44px; padding: 0 18px; border: 1px solid rgb(126 192 230 / .45); border-radius: 999px; cursor: pointer;
+  background: rgb(14 90 138 / .35); color: #fff; font: 600 15px/1 var(--texto);
+}
+button:hover { background: rgb(14 90 138 / .6); }
+button:focus-visible, .chave input:focus-visible, summary:focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; }
+
+/* Lado a lado no computador, empilhados no celular. */
+.grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 26px); align-items: start; }
+.cartao { margin: 0; padding: 0 0 18px; border-radius: 16px; overflow: hidden; background: rgb(255 255 255 / .045); border: 1px solid rgb(255 255 255 / .09); }
+.quadro { position: relative; aspect-ratio: 16 / 9; background: #04090f; }
+.quadro video, .quadro canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.quadro video { object-fit: cover; }
+.quadro canvas { pointer-events: none; transition: opacity .35s; }
+.sem-sinal .quadro canvas { opacity: 0; }
+
+.cartao h2 { margin: 16px 18px 10px; font: 800 clamp(20px, 1.7vw, 26px)/1.1 var(--display); letter-spacing: -.02em; }
+dl { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 18px; }
+dl div { padding: 7px 12px; border-radius: 10px; background: rgb(126 192 230 / .10); }
+dt { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--azul-claro); }
+dd { margin: 1px 0 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+dd small { font-weight: 400; color: var(--tinta-clara); }
+.nota { margin: 12px 18px 0; color: var(--tinta-clara); font-size: 15px; }
+
+.rodape { max-width: 60em; margin-top: clamp(28px, 4vw, 48px); color: var(--tinta-clara); }
+.rodape strong { color: #fff; }
+summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; color: #fff; }
+details p { margin: 8px 0 0; }
+
+@media (max-width: 980px) {
+  .grade { grid-template-columns: 1fr; }
+}
